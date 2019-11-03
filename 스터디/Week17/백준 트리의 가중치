@@ -1,0 +1,44 @@
+#include <iostream>
+#include <vector>
+using namespace std;
+struct P{
+    int v;
+    int w;
+    P(int a, int b) {
+        v = a;
+        w = b;
+    };
+    P();
+};
+
+int n;
+vector<P> tree[100010];
+long long total;
+long long subtree[100010]; // 서브트리사이의 중간경로
+int visit[100010];
+void dfs(int now) {
+    visit[now] = 1;
+    for(int i=0; i<tree[now].size(); i++) {
+        int next = tree[now][i].v;
+        int w = tree[now][i].w;
+        long long sum = 0;
+        if(visit[next])
+            continue;
+        dfs(next);
+
+
+    }
+}
+int main() {
+    cin >> n;
+    for(int i=0; i<n; i++) {
+        int a, b, w;
+        cin >> a >> b >> w;
+        tree[a].push_back(P(b, w));
+        tree[b].push_back(P(a, w));
+    }
+
+
+
+    return 0;
+}

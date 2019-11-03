@@ -1,0 +1,27 @@
+#include <string>
+#include <vector>
+#include <queue>
+#include <string.h>
+using namespace std;
+struct Car{
+    string name;
+    int odo;
+};
+struct cmp{
+    bool operator()(Car a, Car b){
+        if(a.odo<b.odo) return true;
+        else if(a.odo==b.odo) {
+            if(a.name.compare(b.name)>0) return true;
+            else return false;
+        }
+        else return false;
+    }
+ };
+string solution(int n, vector<string> plates, vector<int> odo, int k, vector<int> drives) {
+    string answer = "";
+    priority_queue<Car, vector<Car>, cmp> pq;
+    for(int i=0; i<k; i++) {
+
+    }
+    return answer;
+}
